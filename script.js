@@ -1,6 +1,9 @@
 const steps = document.querySelectorAll(".step");
 const startButton = document.getElementById("start-button");
+const tempoSlider = document.getElementById("tempo-slider");
+const tempoDisplay = document.getElementById("tempo-display");
 let intervalId = null;
+let tempo = 120;
 
 steps.forEach((step) => {
   step.addEventListener("click", () => {
@@ -19,8 +22,16 @@ startButton.addEventListener("click", () => {
   }
 });
 
+tempoSlider.addEventListener("input", () => {
+  tempo = tempoSlider.value;
+  tempoDisplay.textContent = tempo;
+  if (intervalId) {
+    clearInterval(intervalId);
+    startSequencer();
+  }
+});
+
 function startSequencer() {
-  const tempo = 120;
   const interval = (60 / tempo / 2) * 1000;
   let index = 0;
 

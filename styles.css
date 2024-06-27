@@ -1,49 +1,55 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
 #sequencer {
-    display: inline-block;
-    margin-top: 20px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 .row {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .sound-button {
-    width: 80px;
-    height: 40px;
-    margin-right: 10px;
+  width: 80px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 .steps {
-    display: inline-block;
+  display: inline-block;
 }
 
 .step {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .step.active {
-    background-color: #555;
-    border-color: #222;
-    color: white;
+  background-color: #555;
+  border-color: #222;
+  color: white;
 }
 
 .step.current {
-    background-color: #ffa;
-    border-color: #f90;
+  background-color: #ffa;
+  border-color: #f90;
+}
+
+#controls {
+  margin-top: 20px;
+}
+
+#tempo-slider {
+  margin: 10px;
 }
 
 #start-button {
-    margin-top: 20px;
-    padding: 10px 20px;
+  padding: 10px 20px;
 }
-

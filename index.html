@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drum Sequencer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <h1>Drum Sequencer</h1>
     <div id="sequencer">
@@ -49,8 +51,12 @@
             </div>
         </div>
     </div>
-    <button id="start-button">Start</button>
+    <div id="controls">
+        <label for="tempo-slider">Tempo: <span id="tempo-display">120</span> BPM</label>
+        <input type="range" id="tempo-slider" min="60" max="180" value="120">
+        <button id="start-button">Start</button>
+    </div>
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>
