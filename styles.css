@@ -9,12 +9,14 @@ body {
 }
 
 .row {
-  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 0;
 }
 
 .sound-button {
-  width: 80px;
-  height: 40px;
+  height: 30px;
+  width: 60px;
   margin-right: 10px;
 }
 
@@ -25,21 +27,19 @@ body {
 .step {
   width: 30px;
   height: 30px;
-  margin-right: 5px;
-  background-color: #eee;
-  border: 1px solid #ccc;
+  border: 1.24px solid;
   cursor: pointer;
+  background: linear-gradient(137.71deg, #e2e1dd 4.64%, #d8d4d3 95.71%);
 }
 
 .step.active {
-  background-color: #555;
+  background: linear-gradient(136.73deg, rgba(255, 255, 255, 0.87) 3.9%, rgba(234, 231, 231, 0.9) 102.39%);
   border-color: #222;
   color: white;
 }
 
 .step.current {
-  background-color: #ffa;
-  border-color: #f90;
+  background: radial-gradient(58.04% 62.13% at 50% 50%, rgba(247, 162, 235, 0.8) 0%, rgba(240, 6, 211, 0.8) 100%);
 }
 
 #controls {

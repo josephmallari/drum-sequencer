@@ -2,12 +2,51 @@ const steps = document.querySelectorAll(".step");
 const startButton = document.getElementById("start-button");
 const tempoSlider = document.getElementById("tempo-slider");
 const tempoDisplay = document.getElementById("tempo-display");
+const soundButtons = document.querySelectorAll(".sound-button");
 let intervalId = null;
 let tempo = 120;
+
+// Create a Web Audio API context
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+// Load and store the audio buffers for each sound
+const audioBuffers = {};
+
+async function loadSound(sound) {
+  const response = await fetch(`sounds/${sound}.wav`);
+  const arrayBuffer = await response.arrayBuffer();
+  return await audioContext.decodeAudioData(arrayBuffer);
+}
+
+async function loadAllSounds() {
+  audioBuffers.kick = await loadSound("kick");
+  audioBuffers.snare = await loadSound("snare");
+  audioBuffers.hihat = await loadSound("hihat");
+}
+
+// Call the function to load all sounds
+loadAllSounds();
+
+function playSound(sound) {
+  const buffer = audioBuffers[sound];
+  if (buffer) {
+    const source = audioContext.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioContext.destination);
+    source.start(0);
+  }
+}
 
 steps.forEach((step) => {
   step.addEventListener("click", () => {
     step.classList.toggle("active");
+  });
+});
+
+soundButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const sound = button.dataset.sound;
+    playSound(sound);
   });
 });
 
@@ -56,9 +95,4 @@ function startSequencer() {
 
   playStep(); // Play the first step immediately
   intervalId = setInterval(playStep, interval);
-}
-
-function playSound(sound) {
-  const audio = new Audio(`sounds/${sound}.wav`);
-  audio.play();
 }
