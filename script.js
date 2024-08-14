@@ -4,7 +4,7 @@ const tempoSlider = document.getElementById("tempo-slider");
 const tempoDisplay = document.getElementById("tempo-display");
 const soundButtons = document.querySelectorAll(".sound-button");
 let intervalId = null;
-let tempo = 120;
+let tempo = 135;
 
 // Create a Web Audio API context
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -20,8 +20,9 @@ async function loadSound(sound) {
 
 async function loadAllSounds() {
   audioBuffers.kick = await loadSound("kick");
-  audioBuffers.snare = await loadSound("snare");
+  audioBuffers.clap = await loadSound("clap");
   audioBuffers.hihat = await loadSound("hihat");
+  audioBuffers.bass = await loadSound("bass");
 }
 
 // Call the function to load all sounds
