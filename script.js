@@ -6,10 +6,8 @@ const soundButtons = document.querySelectorAll(".sound-button");
 let intervalId = null;
 let tempo = 135;
 
-// Create a Web Audio API context
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-// Load and store the audio buffers for each sound
 const audioBuffers = {};
 
 async function loadSound(sound) {
@@ -25,7 +23,6 @@ async function loadAllSounds() {
   audioBuffers.bass = await loadSound("bass");
 }
 
-// Call the function to load all sounds
 loadAllSounds();
 
 function playSound(sound) {
@@ -94,6 +91,6 @@ function startSequencer() {
     index = (index + 1) % 8;
   }
 
-  playStep(); // Play the first step immediately
+  playStep(); // play the first step immediately
   intervalId = setInterval(playStep, interval);
 }
