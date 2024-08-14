@@ -4,7 +4,6 @@ body {
 }
 
 h1 {
-  font-size: 24px;
   margin: 0;
   font: 6vw Arial;
 }
@@ -66,7 +65,7 @@ h1 {
 }
 
 #controls label {
-  font-size: 27px;
+  font-size: 6vw;
 }
 
 #tempo-slider {
@@ -98,4 +97,19 @@ h1 {
     -5.0662px -7.94476px 8.87243px rgba(255, 255, 255, 0.44708),
     -5.0662px -7.19869px 7.64152px rgba(255, 255, 255, 0.375);
   border-radius: 10px;
+}
+
+@media screen and (max-width: 414px) {
+  .sound-button {
+    display: none;
+  }
+
+  .step {
+    width: 40px;
+    height: 40px;
+  }
+
+  #controls {
+    flex-direction: column;
+  }
 }
